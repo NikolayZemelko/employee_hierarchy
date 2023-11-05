@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "employee-hierarchy"
+version = "0.1.0"
+description = "test assignments"
+authors = ["NikolayZemelko <zemelko1989@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "^4.2.7"
+python-dotenv = "^1.0.0"
+django-extensions = "^3.2.3"
+
+[tool.poetry.group.dev.dependencies]
+Faker = "^19.13.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
