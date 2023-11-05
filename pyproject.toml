@@ -11,6 +11,9 @@ python = "^3.10"
 Django = "^4.2.7"
 python-dotenv = "^1.0.0"
 django-extensions = "^3.2.3"
+flake8 = "^6.1.0"
+django-bootstrap5 = "^23.3"
+psycopg = "^3.1.12"
 
 [tool.poetry.group.dev.dependencies]
 Faker = "^19.13.0"
