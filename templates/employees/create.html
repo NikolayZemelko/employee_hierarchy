@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% load i18n %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+{% block content %}
+{% csrf_token %}
+{% bootstrap_form form %}
+{% trans "Create" as Button %}
+{% bootstrap_button button_type="submit" content=Button %}
+{% endblock %}
