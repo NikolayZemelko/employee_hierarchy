@@ -4,3 +4,30 @@
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 {% bootstrap_messages %}
+{% block content %}
+    {% csrf_token %}
+    <table class="table">
+        <thead>
+        <tr class="table-primary">
+            <th scope="col">#</th>
+            <th scope="col">{% trans "First name" %}</th>
+            <th scope="col">{% trans "Last name" %}</th>
+            <th scope="col">{% trans "Job title" %}</th>
+            <th scope="col">{% trans "Date offered" %}</th>
+            <th scope="col">{% trans "Supervisor" %}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for employee in employees %}
+            <tr>
+                <th>{{ forloop.counter }}</th>
+                <td>{{ employee.first_name }}</td>
+                <td>{{ employee.last_name }}</td>
+                <td>{{ employee.job_title }}</td>
+                <td>{{ employee.date_offered }}</td>
+                <td>{{ employee.supervisor }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

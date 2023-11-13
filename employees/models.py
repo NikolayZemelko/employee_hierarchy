@@ -28,12 +28,12 @@ class Employee(models.Model):
     date_created = models.DateTimeField(
         auto_now_add=True,
     )
-    date_offered = models.DateField(
-        editable=False,
-    )
+    date_offered = models.DateField()
+
     salary = models.IntegerField()
     supervisor = models.ForeignKey(
         'self',
+        null=True,
         on_delete=models.CASCADE,
         related_name='employees'
     )
