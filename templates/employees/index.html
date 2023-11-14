@@ -18,14 +18,20 @@
         </tr>
         </thead>
         <tbody>
+        {% trans "CEO" as CEO %}
         {% for employee in employees %}
             <tr>
                 <th>{{ forloop.counter }}</th>
                 <td>{{ employee.first_name }}</td>
                 <td>{{ employee.last_name }}</td>
-                <td>{{ employee.job_title }}</td>
+                <td>{{ employee.job_title }}
+                    {% if not employee.supervisor %}
+                        | CEO </td>
+                    {% else %}
+                        </td>
+                {% endif %}
                 <td>{{ employee.date_offered }}</td>
-                <td>{{ employee.supervisor }}</td>
+                <td>{{ employee.supervisor|default:"" }}</td>
             </tr>
         {% endfor %}
         </tbody>

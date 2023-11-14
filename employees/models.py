@@ -41,7 +41,9 @@ class Employee(models.Model):
     class Meta:
         constraints = [
             models.CheckConstraint(check=models.Q(
-                salary__gte=50000), name="salary_gte_50000_RUB")
+                salary__gte=50000), name="salary_gte_50000_RUB",
+                violation_error_message=_("It is impossible to set a salary "
+                                          "below the subsistence level."))
         ]
         indexes = [
             models.Index(fields=["first_name", "last_name"]),
