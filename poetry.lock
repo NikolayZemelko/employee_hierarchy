@@ -66,6 +66,36 @@ files = [
 Django = ">=3.2"
 
 [[package]]
+name = "django-filter"
+version = "23.3"
+description = "Django-filter is a reusable Django application for allowing users to filter querysets dynamically."
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "django-filter-23.3.tar.gz", hash = "sha256:015fe155582e1805b40629344e4a6cf3cc40450827d294d040b4b8c1749a9fa6"},
+    {file = "django_filter-23.3-py3-none-any.whl", hash = "sha256:65bc5d1d8f4fff3aaf74cb5da537b6620e9214fb4b3180f6c560776b1b6dccd0"},
+]
+
+[package.dependencies]
+Django = ">=3.2"
+
+[[package]]
+name = "django-seeder"
+version = "0.1.0"
+description = "Seed your Django project with fake data"
+optional = false
+python-versions = "*"
+files = [
+    {file = "django-seeder-0.1.0.tar.gz", hash = "sha256:1d883848587072bd74c7a67d92aee8870767dcdd5d85f289b364561130d18494"},
+    {file = "django_seeder-0.1.0-py3-none-any.whl", hash = "sha256:237a0d9294a9c3c2ecec3aa0a9bdf2d9342613bbb78d16a26579213cc148ad84"},
+]
+
+[package.dependencies]
+django = ">=1.11"
+Faker = ">=0.7.7"
+toposort = ">=1.5"
+
+[[package]]
 name = "faker"
 version = "19.13.0"
 description = "Faker is a Python package that generates fake data for you."
@@ -108,13 +138,13 @@ files = [
 
 [[package]]
 name = "psycopg"
-version = "3.1.12"
+version = "3.1.13"
 description = "PostgreSQL database adapter for Python"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "psycopg-3.1.12-py3-none-any.whl", hash = "sha256:8ec5230d6a7eb654b4fb3cf2d3eda8871d68f24807b934790504467f1deee9f8"},
-    {file = "psycopg-3.1.12.tar.gz", hash = "sha256:cec7ad2bc6a8510e56c45746c631cf9394148bdc8a9a11fd8cf8554ce129ae78"},
+    {file = "psycopg-3.1.13-py3-none-any.whl", hash = "sha256:1253010894cfb64e2da4556d4eff5f05e45cafee641f64e02453be849c8f7687"},
+    {file = "psycopg-3.1.13.tar.gz", hash = "sha256:e6d047ce16950651d6e26c7c19ca57cc42e1d4841b58729f691244baeee46e30"},
 ]
 
 [package.dependencies]
@@ -122,8 +152,8 @@ typing-extensions = ">=4.1"
 tzdata = {version = "*", markers = "sys_platform == \"win32\""}
 
 [package.extras]
-binary = ["psycopg-binary (==3.1.12)"]
-c = ["psycopg-c (==3.1.12)"]
+binary = ["psycopg-binary (==3.1.13)"]
+c = ["psycopg-c (==3.1.13)"]
 dev = ["black (>=23.1.0)", "dnspython (>=2.1)", "flake8 (>=4.0)", "mypy (>=1.4.1)", "types-setuptools (>=57.4)", "wheel (>=0.37)"]
 docs = ["Sphinx (>=5.0)", "furo (==2022.6.21)", "sphinx-autobuild (>=2021.3.14)", "sphinx-autodoc-typehints (>=1.12)"]
 pool = ["psycopg-pool"]
@@ -207,6 +237,17 @@ doc = ["sphinx"]
 test = ["pytest", "pytest-cov"]
 
 [[package]]
+name = "toposort"
+version = "1.10"
+description = "Implements a topological sort algorithm."
+optional = false
+python-versions = "*"
+files = [
+    {file = "toposort-1.10-py3-none-any.whl", hash = "sha256:cbdbc0d0bee4d2695ab2ceec97fe0679e9c10eab4b2a87a9372b929e70563a87"},
+    {file = "toposort-1.10.tar.gz", hash = "sha256:bfbb479c53d0a696ea7402601f4e693c97b0367837c8898bc6471adfca37a6bd"},
+]
+
+[[package]]
 name = "typing-extensions"
 version = "4.8.0"
 description = "Backported and Experimental Type Hints for Python 3.8+"
@@ -231,4 +272,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "3b326f2d37b4a795fb082df2218c37b20c91da1e9e835490e9493d5835041952"
+content-hash = "d57075d9bc864563a35f63c39cdd5efba94f888d7aa45c762e415d8ed5527f86"

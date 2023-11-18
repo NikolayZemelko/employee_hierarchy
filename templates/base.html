@@ -17,15 +17,12 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
 
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                <li class="nav-item">
-                    <a class="nav-link" href={% url "index" %}>{% trans "Home" %}</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href={% url "employees-index" %}>{% trans "All employees" %}</a>
+                    </li>
                     {% if request.user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link" href={% url "employee-create" %}>{% trans "Create employee" %}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href={% url "employees-index" %}>{% trans "All employees" %}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href={% url "logout" %}>{% trans "Logout" %}</a>
@@ -50,7 +47,8 @@
     <div class="container-fluid">
         <span class="text">
             {% trans "Employees hierarchy project by " %}
-                <a href="https://github.com/NikolayZemelko/employee_hierarchy" class="btn btn-dark btn-sl" role="button">{% trans "Nikolay Zemelko" %}</a>
+                <a href="https://github.com/NikolayZemelko/employee_hierarchy" class="btn btn-dark btn-sl"
+                   role="button">{% trans "Nikolay Zemelko" %}</a>
         </span>
     </div>
 </footer>

@@ -6,6 +6,10 @@ from .models import Employee
 
 class CreateEmployeeForm(forms.ModelForm):
 
+    supervisor = forms.ModelChoiceField(label=_("Supervisor"),
+                                        help_text=_("Assign a manager to the employee"),
+                                        queryset=Employee.objects.exclude(job_title="JR"))
+
     class Meta:
         model = Employee
         exclude = [
@@ -16,8 +20,7 @@ class CreateEmployeeForm(forms.ModelForm):
             "last_name": _("Last name"),
             "job_title": _("Position"),
             "date_offered": _("Offer date"),
-            "salary": _("Salary"),
-            "supervisor": _("Supervisor"),
+            "salary": _("Salary")
         }
 
         help_texts = {
@@ -25,8 +28,7 @@ class CreateEmployeeForm(forms.ModelForm):
             "last_name": _("Enter the employee's last name"),
             "job_title": _("Specify the employee's position"),
             "date_offered": _("Indicate the date the employee was hired"),
-            "salary": _("Set employee salary"),
-            "supervisor": _("Assign a manager to the employee"),
+            "salary": _("Set employee salary")
         }
         widgets = {
             "date_offered": forms.DateInput(attrs={"type": "date"}),

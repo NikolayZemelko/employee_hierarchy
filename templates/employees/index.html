@@ -6,15 +6,19 @@
 {% bootstrap_messages %}
 {% block content %}
     {% csrf_token %}
+    <form action="get">
+        {{ filter.form.as_p }}
+        <input type="submit" />
+    </form>
     <table class="table">
         <thead>
         <tr class="table-primary">
             <th scope="col">#</th>
-            <th scope="col">{% trans "First name" %}</th>
-            <th scope="col">{% trans "Last name" %}</th>
-            <th scope="col">{% trans "Job title" %}</th>
-            <th scope="col">{% trans "Date offered" %}</th>
-            <th scope="col">{% trans "Supervisor" %}</th>
+            <th scope="col"><a href="?sort_by=first_name">{% trans "First name" %}</a></th>
+            <th scope="col"><a href="?sort_by=last_name">{% trans "Last name" %}</a></th>
+            <th scope="col"><a href="?sort_by=job_title">{% trans "Job title" %}</a></th>
+            <th scope="col"><a href="?sort_by=date_offered">{% trans "Date offered" %}</a></th>
+            <th scope="col"><a href="?sort_by=supervisor">{% trans "Supervisor" %}</a></th>
         </tr>
         </thead>
         <tbody>
@@ -29,11 +33,12 @@
                         | CEO </td>
                     {% else %}
                         </td>
-                {% endif %}
+                    {% endif %}
                 <td>{{ employee.date_offered }}</td>
                 <td>{{ employee.supervisor|default:"" }}</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+    {% include "components/pagination.html" %}
 {% endblock %}

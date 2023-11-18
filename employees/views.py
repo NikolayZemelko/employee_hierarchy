@@ -6,13 +6,22 @@ from django.views import generic
 
 from .forms import CreateEmployeeForm
 from .models import Employee
+from .filters import EmployeeFilter
 
 
-class EmployeesView(LoginRequiredMixin, generic.ListView):
-    login_url = 'login'
-    model = Employee
+class EmployeesView(EmployeeFilter, generic.ListView):
+    paginate_by = 20
     context_object_name = 'employees'
     template_name = "employees/index.html"
+
+    def get_queryset(self):
+
+        if self.request.user.is_authenticated:
+
+            sort_by = self.request.GET.get('sort_by', 'first_name')
+            return Employee.objects.order_by(sort_by)
+        else:
+            return Employee.objects.all()
 
 
 class EmployeeCreateView(LoginRequiredMixin,
