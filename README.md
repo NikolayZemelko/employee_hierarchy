@@ -1,75 +1,49 @@
-При выполнении тестового задания Вы можете дополнительно использовать любые
-сторонние Python и/или Javascript/CSS библиотеки, без всяких ограничений. Все 3rd
-party Python/Javascript/CSS библиотеки должны быть добавлены в проект через
-pip/bower/npm/yarn если библиотека поддерживает такой способ установки. У нас
-нет никаких требований к оформлению фронтенд части, но аккуратный вид
-приветствуется и добавим вам бонусных пунктов.
 
-Часть No1 (обязательная)
-Создайте веб страницу, которая будет выводить иерархию сотрудников в
-древовидной форме.
-● Информация о каждом сотруднике должна храниться в базе данных и
-содержать следующие данные:
-○ ФИО;
-○ Должность;
-○ Дата приема на работу;
-○ Размер заработной платы;
-● У каждого сотрудника есть 1 начальник;
-● База данных должна содержать не менее 50 000 сотрудников и 5 уровней
-иерархий.
-● Не забудьте отобразить должность сотрудника.
 
-Часть No2 (опциональная)
-1. Создайте базу данных используя миграции Django / Flask.
-2. Используйте DB seeder для Django ORM / Flask-SQLAlchemy для заполнения
-базы данных.
-3. Используйте Twitter Bootstrap для создания базовых стилей Вашей страницы.
-4. Создайте еще одну страницу и выведите на ней список сотрудников со всей
-имеющейся о сотруднике информацией из базы данных и возможностью
-сортировать по любому полю.
+## Employee Hierarchy
+### Task:
 
-www.abz.agency
+Create a web page that will display the employee hierarchy in tree form.
 
-+38 050 2542 789
-hr@abz.agency_
+### Information about each employee must be stored in a database and contain the following data:
 
-5. Добавьте возможность поиска сотрудников по любому полю для страницы
-созданной в задаче 4.
-6. Добавьте возможность сортировать (и искать если Вы выполнили задачу No5)
-по любому полю без перезагрузки страницы, например используя ajax.
-7. Используя стандартные функции Django / Flask, осуществите аутентификацию
-пользователя для раздела веб сайта доступного только для
-зарегистрированных пользователей.
-8. Перенесите функционал разработанный в задачах 4, 5 и 6 (используя ajax
-запросы) в раздел доступный только для зарегистрированных пользователей.
-9. В разделе доступном только для зарегистрированных пользователей,
-реализуйте остальные CRUD операции для записей сотрудников. Пожалуйста
-заметьте, что все поля касающиеся пользователей должны быть
-редактируемыми, включая начальника каждого сотрудника.
-10. Осуществите возможность загружать фотографию сотрудника и отобразите ее
-на странице, где можно редактировать данные о сотрудник. Добавьте
-дополнительную колонку с уменьшенной фотографией сотрудника на
-странице списка всех сотрудников.
-11. Осуществите возможность перераспределения сотрудников в случае
-изменения начальника (бонусом может быть то, что вы сможете это
-осуществить с применением встроенных механизмов/парадигм, предлагаемых
-Django ORM / Flask-SQLAlchemy ORM).
-12. Реализуйте ленивую загрузку для дерева сотрудников. Например, показывайте
-первые два уровня иерархии по умолчанию и подгружайте 2 следующих
-уровня или всю ветку дерева при клике на сотрудника второго уровня.
-13. Реализуйте возможность менять начальника сотрудника используя drag-n-drop
-сразу в дереве сотрудников.
+* _FULL NAME;_
+* _Job title;_
+* _Employment date;_
+* _Salary amount;_
+* _Each employee has 1 boss;_
+* _The database must contain at least 50,000 employees and 5 levels_
+hierarchies.
+* Don't forget to display the employee's position.
 
-www.abz.agency
+### Additional requirements:
 
-+38 050 2542 789
-hr@abz.agency_
+- [x] Create the database using Django/Flask migrations.
+- [x] Use DB seeder for Django ORM / Flask-SQLAlchemy to seed the database.
+- [x] Use Twitter Bootstrap to create basic styling for your page.
+- [x] Create another page and display a list of employees with all the information available about the employee from the database and the ability to sort by any field.
+- [x] Add the ability to search for employees by any field for the page created in task 4.
+- [ ] Add the ability to sort (and search if you completed task No5) by any field without reloading the page, for example using ajax.
+- [x] Using standard Django/Flask functions, authenticate the user for the registered user-only section of the website.
+- [x] Move the functionality developed in tasks 4, 5 and 6 (using ajax requests) to a section available only to registered users.
+- [ ] In the section available only to registered users, implement the remaining CRUD operations for employee records. Please note that all fields related to users must be editable, including the boss of each employee.
+- [ ] Make it possible to upload a photo of an employee and display it on the page where you can edit information about the employee. Add an additional column with a thumbnail photo of the employee on the list of all employees page.
+- [ ] Implement the ability to redistribute employees in case of a change in boss (a bonus may be that you can do this using the built-in mechanisms/paradigms offered by Django ORM / Flask-SQLAlchemy ORM).
+- [ ] Implement lazy loading for the employee tree. For example, show the first two levels of the hierarchy by default and load the next 2 levels or the entire tree branch when you click on a second-level employee.
+- [ ] Implement the ability to change an employee's boss using drag-n-drop directly in the employee tree.
 
-Пожалуйста не забудьте, что Ваше тестовое задание должно быть предоставлено в
-виде ссылки на github/bitbucket репозиторий. Мы рассмотрим каждое задание
-соответствующее заявленным выше требованиям. Рассмотрение занимает некоторое
-время, поэтому не стоит перезванивать нам на следующий день, чтобы узнать
-результат. Так же не стоит спешить и отправлять только часть выполненных заданий,
-если чувствуете что можете сделать больше. У нас открыто несколько вакансий и мы
-всегда в поиске талантов, проявите себя! Мы желаем Вам удачи и с нетерпением
-ждем Ваше выполненное задание.
+### Installation:
+
+To start demo you need installed `postgres` or installed `docker-compose`
+
+### Running:
+
+#### With Poetry:
+1. Install dependencies use `poetry install`
+2. Run app with `make start`
+
+#### With Docker-Compose:
+1. Use command `make docker-start`
+
+#### Usage:
+    
