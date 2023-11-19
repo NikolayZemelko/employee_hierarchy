@@ -6,9 +6,10 @@ from .models import Employee
 
 class CreateEmployeeForm(forms.ModelForm):
 
-    supervisor = forms.ModelChoiceField(label=_("Supervisor"),
-                                        help_text=_("Assign a manager to the employee"),
-                                        queryset=Employee.objects.exclude(job_title="JR"))
+    supervisor = forms.ModelChoiceField(
+        label=_("Supervisor"),
+        help_text=_("Assign a manager to the employee"),
+        queryset=Employee.objects.exclude(job_title="JR"))
 
     class Meta:
         model = Employee

@@ -8,6 +8,9 @@ seed:
 lint:
 	flake8 .
 
+test:
+	$(MANAGE) test
+
 dev:
 	$(MANAGE) runserver
 

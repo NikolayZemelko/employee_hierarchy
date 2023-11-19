@@ -1,0 +1,19 @@
+asgiref==3.7.2
+Django==4.2.7
+django-bootstrap5==23.3
+django-extensions==3.2.3
+django-filter==23.3
+django-seeder==0.1.0
+-e git+https://github.com/NikolayZemelko/employee_hierarchy.git@4ce74e033017bcaa3c24a572a9adb3d69fa6a32b#egg=employee_hierarchy
+Faker==19.13.0
+flake8==6.1.0
+mccabe==0.7.0
+psycopg==3.1.13
+pycodestyle==2.11.1
+pyflakes==3.1.0
+python-dateutil==2.8.2
+python-dotenv==1.0.0
+six==1.16.0
+sqlparse==0.4.4
+toposort==1.10
+typing_extensions==4.8.0
