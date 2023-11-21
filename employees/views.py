@@ -10,20 +10,14 @@ from .models import Employee
 from .filters import EmployeeFilter
 
 
-class EmployeesView(FilterView, generic.ListView):
+class EmployeesView(EmployeeFilter, FilterView):
 
     model = Employee
     paginate_by = 20
+    ordering = 'first_name'
     filterset_class = EmployeeFilter
     context_object_name = 'employees'
     template_name = "employees/index.html"
-
-    def get_ordering(self):
-
-        if self.request.user.is_authenticated:
-            return self.request.GET.get('sort_by', 'first_name')
-        else:
-            return super().get_ordering()
 
 
 class EmployeeCreateView(LoginRequiredMixin,

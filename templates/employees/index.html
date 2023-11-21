@@ -1,24 +1,28 @@
 {% extends "base.html" %}
 {% load django_bootstrap5 %}
 {% load i18n %}
+{% load my_tags %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 {% bootstrap_messages %}
 {% block content %}
     {% csrf_token %}
-    <form action="" method="get">
-        {{ filter.form.as_p }}
-        <button type="submit">{% trans "Filter" %}</button>
-    </form>
+    {% if request.user.is_authenticated %}
+        <form action="" method="get">
+            {{ filter.form.as_p }}
+            <button type="submit">{% trans "Filter" %}</button>
+            <a href="{% url "employees-index" %}">{% trans "Clear filter" %}</a>
+        </form>
+    {% endif %}
     <table class="table">
         <thead>
         <tr class="table-primary">
             <th scope="col">#</th>
-            <th scope="col"><a href="?sort_by=first_name">{% trans "First name" %}</a></th>
-            <th scope="col"><a href="?sort_by=last_name">{% trans "Last name" %}</a></th>
-            <th scope="col"><a href="?sort_by=job_title">{% trans "Job title" %}</a></th>
-            <th scope="col"><a href="?sort_by=date_offered">{% trans "Date offered" %}</a></th>
-            <th scope="col"><a href="?sort_by=supervisor">{% trans "Supervisor" %}</a></th>
+            <th scope="col">{% trans "First name" %}</th>
+            <th scope="col">{% trans "Last name" %}</th>
+            <th scope="col">{% trans "Job title" %}</th>
+            <th scope="col">{% trans "Date offered" %}</th>
+            <th scope="col">{% trans "Supervisor" %}</th>
         </tr>
         </thead>
         <tbody>
