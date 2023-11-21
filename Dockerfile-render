@@ -12,4 +12,8 @@ COPY . .
 
 RUN chmod a+x docker/*.sh
 
-CMD gunicorn -b=0.0.0.0:8000 employee_hierarchy.wsgi:application --workers 1
+RUN make migrate
+
+RUN make seed
+
+CMD gunicorn -b=0.0.0.0 employee_hierarchy.wsgi:application --workers 1

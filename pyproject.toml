@@ -15,7 +15,6 @@ django-bootstrap5 = "^23.3"
 psycopg = "^3.1.12"
 django-filter = "^23.3"
 gunicorn = "^21.2.0"
-docker-composer = "^2.17.4"
 python-dotenv = "0.21.1"
 
 [tool.poetry.group.dev.dependencies]

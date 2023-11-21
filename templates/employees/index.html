@@ -28,7 +28,7 @@
                 <th>{{ forloop.counter }}</th>
                 <td>{{ employee.first_name }}</td>
                 <td>{{ employee.last_name }}</td>
-                <td>{{ employee.job_title }}
+                <td>{{ employee.get_job_title_display }}
                     {% if not employee.supervisor %}
                         | CEO </td>
                     {% else %}

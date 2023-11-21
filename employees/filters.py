@@ -4,7 +4,7 @@ from .models import Employee
 
 class EmployeeFilter(filters.FilterSet):
     supervisor = filters.ModelChoiceFilter(
-        queryset=Employee.objects.exclude(job_title="JR"))
+        queryset=Employee.objects.filter(job_title="SR"))
 
     class Meta:
         model = Employee
