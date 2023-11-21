@@ -3,25 +3,27 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
 from django.views import generic
+from django_filters.views import FilterView
 
 from .forms import CreateEmployeeForm
 from .models import Employee
 from .filters import EmployeeFilter
 
 
-class EmployeesView(EmployeeFilter, generic.ListView):
+class EmployeesView(FilterView, generic.ListView):
+
+    model = Employee
     paginate_by = 20
+    filterset_class = EmployeeFilter
     context_object_name = 'employees'
     template_name = "employees/index.html"
 
-    def get_queryset(self):
+    def get_ordering(self):
 
         if self.request.user.is_authenticated:
-
-            sort_by = self.request.GET.get('sort_by', 'first_name')
-            return Employee.objects.order_by(sort_by)
+            return self.request.GET.get('sort_by', 'first_name')
         else:
-            return Employee.objects.all()
+            return super().get_ordering()
 
 
 class EmployeeCreateView(LoginRequiredMixin,

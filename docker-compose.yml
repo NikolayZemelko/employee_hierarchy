@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+
+  db:
+    image: postgres:15
+    container_name: employee_db
+    command: -p 1221
+    expose:
+      - 1221
+    env_file:
+      - .env-nondev
+
+  app:
+    build:
+      context: .
+    env_file:
+      - .env-nondev
+    container_name: employee_hierarchy
+#    command: ["make", "seed"]
+    ports:
+      - 9999:8000
+    depends_on:
+      - db

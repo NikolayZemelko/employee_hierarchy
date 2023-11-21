@@ -14,6 +14,12 @@ test:
 dev:
 	$(MANAGE) runserver
 
+docker-start:
+	poetry run pip freeze > requirements.txt
+	docker-compose build --no-cache
+	docker-compose up
+
+
 shell:
 	$(MANAGE) shell_plus --print-sql
 

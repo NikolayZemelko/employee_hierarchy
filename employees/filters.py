@@ -1,8 +1,11 @@
-import django_filters
+import django_filters as filters
 from .models import Employee
 
 
-class EmployeeFilter(django_filters.FilterSet):
+class EmployeeFilter(filters.FilterSet):
+    supervisor = filters.ModelChoiceFilter(
+        queryset=Employee.objects.exclude(job_title="JR"))
+
     class Meta:
         model = Employee
         exclude = ['date_created']
