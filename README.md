@@ -38,12 +38,7 @@ To start demo you need installed `postgres` or installed `docker-compose`
 
 ### Running:
 
-#### With Poetry:
 1. Install dependencies use `poetry install`
-2. Run app with `make start`
-
-#### With Docker-Compose:
-1. Use command `make docker-start`
-
-#### Usage:
-    
+2. Fill the `.env` file in the root directory, use `.env-example`
+3. Run app with `make dev`
+4. Run app with docker-compose `make docker-start`
