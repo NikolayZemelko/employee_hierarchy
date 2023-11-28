@@ -1,4 +1,4 @@
-
+[![Django CI](https://github.com/zemelko/employee_hierarchy/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/zemelko/employee_hierarchy/actions/workflows/main.yml)
 
 ## [Employees-hierarchy-app.onrender.com](https://employees-hierarchy-app.onrender.com/)
 ### Task:
