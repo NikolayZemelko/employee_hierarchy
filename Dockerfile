@@ -11,5 +11,3 @@ RUN pip install -r requirements.txt
 COPY . .
 
 RUN chmod a+x docker/*.sh
-
-CMD gunicorn -b=0.0.0.0:8000 employee_hierarchy.wsgi:application --workers 1

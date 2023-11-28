@@ -1,4 +1,6 @@
 [![Django CI](https://github.com/zemelko/employee_hierarchy/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/zemelko/employee_hierarchy/actions/workflows/main.yml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a675dc2d2208657aedb3/maintainability)](https://codeclimate.com/github/zemelko/employee_hierarchy/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a675dc2d2208657aedb3/test_coverage)](https://codeclimate.com/github/zemelko/employee_hierarchy/test_coverage)
 
 ## [Employees-hierarchy-app.onrender.com](https://employees-hierarchy-app.onrender.com/)
 ### Task:
