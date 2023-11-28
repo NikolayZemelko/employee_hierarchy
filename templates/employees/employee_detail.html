@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% load i18n crispy_forms_tags %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+{% block content %}
+    <div class="card">
+        <div class="card-header bg-secondary text-white">
+            <h3>{{ employee }}</h3>
+        </div>
+        <div class="card-body bg-light">
+            <hr>
+            <div class="container">
+                <div class="row p-1">
+                    <div class="col">{% trans "First name" %}</div>
+                    <div class="col">{{ employee.first_name }}</div>
+                </div>
+                <div class="row p-1">
+                    <div class="col">{% trans "Last name" %}</div>
+                    <div class="col">{{ employee.last_name }}</div>
+                </div>
+                <div class="row p-1">
+                    <div class="col">{% trans "Job title" %}</div>
+                    <div class="col">{{ employee.get_job_title_display }}</div>
+                </div>
+                <div class="row p-1">
+                    <div class="col">{% trans "Supervisor" %}</div>
+                    <div class="col">{{ employee.supervisor }}</div>
+                </div>
+                <div class="row p-1">
+                    <div class="col">{% trans "Date offered" %}</div>
+                    <div class="col">{{ employee.date_offered }}</div>
+                </div>
+                <div class="row p-1">
+                    <div class="col">{% trans "Salary RUB" %}</div>
+                    <div class="col">{{ employee.salary }} {% trans "RUB" %}</div>
+                </div>
+                <div class="row p-1">
+                    <div class="col">
+                        <a href="{% url 'employee-update' employee.id %}">{% trans "Update" %}</a>
+                        <br>
+                        <a href="{% url 'employee-delete' employee.id %}">{% trans "Delete" %}</a>
+                    </div>
+                </div>
+{#                <div class="row p-1">#}
+{#                    <table class="table">#}
+{#                        <thead>#}
+{#                        <tr class="table-primary">#}
+{#                            <th scope="col">#</th>#}
+{#                            <th scope="col">{% trans "Name" %}</th>#}
+{#                            <th scope="col">{% trans "Job title" %}</th>#}
+{#                        </tr>#}
+{#                        </thead>#}
+{#                        <tbody>#}
+{#                        {% for subordinate in employee.subordinates.all %}#}
+{#                            <tr>#}
+{#                                <th>{{ forloop.counter }}</th>#}
+{#                                <td>#}
+{#                                    <a href="{% url "employee-detail" subordinate.id %}">#}
+{#                                        {{ subordinate }}#}
+{#                                    </a>#}
+{#                                </td>#}
+{#                                <td>{{ subordinate.get_job_title_display }}#}
+{#                            </tr>#}
+{#                        {% endfor %}#}
+{#                        </tbody>#}
+{#                    </table>#}
+{#                    {% include "components/pagination.html" %}#}
+{#                </div>#}
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

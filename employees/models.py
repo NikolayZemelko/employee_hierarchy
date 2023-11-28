@@ -35,7 +35,7 @@ class Employee(models.Model):
         'self',
         null=True,
         on_delete=models.CASCADE,
-        related_name='employees'
+        related_name='subordinates'
     )
 
     class Meta:

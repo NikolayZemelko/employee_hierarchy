@@ -16,6 +16,8 @@ psycopg = "^3.1.12"
 django-filter = "^23.3"
 gunicorn = "^21.2.0"
 python-dotenv = "0.21.1"
+django-crispy-forms = "^2.1"
+crispy-bootstrap4 = "^2023.1"
 
 [tool.poetry.group.dev.dependencies]
 Faker = "^19.13.0"

@@ -1,0 +1,27 @@
+{% load i18n %}
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href={% url "employees-index" %}>{% trans "All employees" %}</a>
+                </li>
+                {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href={% url "employee-create" %}>{% trans "Create employee" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href={% url "logout" %}>{% trans "Logout" %}</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href={% url "login" %}>{% trans "Login" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href={% url "signup" %}>{% trans "SignUp" %}</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

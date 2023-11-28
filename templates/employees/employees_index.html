@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% load django_bootstrap5 %}
-{% load i18n %}
-{% load my_tags %}
+{% load i18n crispy_forms_tags %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 {% bootstrap_messages %}
@@ -9,29 +8,30 @@
     {% csrf_token %}
     {% if request.user.is_authenticated %}
         <form action="" method="get">
-            {{ filter.form.as_p }}
-            <button type="submit">{% trans "Filter" %}</button>
-            <a href="{% url "employees-index" %}">{% trans "Clear filter" %}</a>
+            {% crispy filter.form %}
         </form>
     {% endif %}
+            <hr>
     <table class="table">
         <thead>
         <tr class="table-primary">
             <th scope="col">#</th>
-            <th scope="col">{% trans "First name" %}</th>
-            <th scope="col">{% trans "Last name" %}</th>
+            <th scope="col">{% trans "Name" %}</th>
             <th scope="col">{% trans "Job title" %}</th>
             <th scope="col">{% trans "Date offered" %}</th>
+            <th scope="col">{% trans "Salary" %}</th>
             <th scope="col">{% trans "Supervisor" %}</th>
         </tr>
         </thead>
         <tbody>
-        {% trans "CEO" as CEO %}
         {% for employee in employees %}
             <tr>
                 <th>{{ forloop.counter }}</th>
-                <td>{{ employee.first_name }}</td>
-                <td>{{ employee.last_name }}</td>
+                <td>
+                    <a href="{% url "employee-detail" employee.id %}">
+                        {{ employee }}
+                    </a>
+                </td>
                 <td>{{ employee.get_job_title_display }}
                     {% if not employee.supervisor %}
                         | CEO </td>
@@ -39,6 +39,7 @@
                         </td>
                     {% endif %}
                 <td>{{ employee.date_offered }}</td>
+                <td>{{ employee.salary }}</td>
                 <td>{{ employee.supervisor|default:"" }}</td>
             </tr>
         {% endfor %}

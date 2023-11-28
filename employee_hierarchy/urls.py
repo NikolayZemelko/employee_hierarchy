@@ -1,19 +1,17 @@
 from django.contrib import admin
-from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import include
-from django.urls import path, reverse_lazy
+from django.urls import path
 
 from .views import BaseView, SignUpView
+from .views import EmployeesLoginView, EmployeesLogoutView
 
 urlpatterns = [
     path('', BaseView.as_view(), name='index'),
     path('admin/', admin.site.urls),
-    path('login/', LoginView.as_view(template_name='login.html',
-                                     next_page=reverse_lazy('employees-index'),
-                                     extra_context={"Button": "Login"}),
+    path('login/', EmployeesLoginView.as_view(),
          name='login'),
     path('signup/', SignUpView.as_view(), name='signup'),
-    path('logout/', LogoutView.as_view(next_page=reverse_lazy('index')),
+    path('logout/', EmployeesLogoutView.as_view(),
          name='logout'),
     path('employees/', include('employees.urls')),
 ]
