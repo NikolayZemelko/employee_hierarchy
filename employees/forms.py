@@ -1,6 +1,5 @@
-from crispy_forms.bootstrap import FormActions
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Submit, Field
+from crispy_forms.layout import Layout, Field
 from django import forms
 from django.utils.translation import gettext as _
 
@@ -23,10 +22,6 @@ class CreateEmployeeForm(forms.ModelForm):
         Field('job_title',),
         Field('salary'),
         Field('supervisor'),
-        FormActions(
-            Submit('create', _('Create'), css_class="btn-primary"),
-            Submit('cancel', _('Cancel')),
-        )
     )
 
     class Meta:

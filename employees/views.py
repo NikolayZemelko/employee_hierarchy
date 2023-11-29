@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
@@ -25,26 +25,36 @@ class EmployeeDetailView(generic.DetailView):
 
 
 class EmployeeCreateView(LoginRequiredMixin,
-                         SuccessMessageMixin, generic.CreateView):
+                         SuccessMessageMixin,
+                         generic.CreateView):
     login_url = 'login'
     form_class = CreateEmployeeForm
     success_url = reverse_lazy('employees-index')
-    template_name = "employees/employee_create.html"
+    template_name = "form.html"
     success_message = _("Employee successfully Created")
-    extra_context = {"Button": "Create"}
+    extra_context = {"Button": _("Create")}
 
 
 class EmployeeUpdateView(LoginRequiredMixin,
-                         UserPassesTestMixin,
                          SuccessMessageMixin,
                          generic.UpdateView
                          ):
-    pass
+    login_url = 'login'
+    form_class = CreateEmployeeForm
+    model = Employee
+    success_url = reverse_lazy('employees-index')
+    template_name = 'form.html'
+    success_message = _("Employee successfully Updated")
+    extra_context = {"Button": _("Update")}
 
 
 class EmployeeDeleteView(LoginRequiredMixin,
-                         UserPassesTestMixin,
                          SuccessMessageMixin,
                          generic.DeleteView
                          ):
-    pass
+    login_url = 'login'
+    model = Employee
+    success_url = reverse_lazy('employees-index')
+    template_name = "employees/employee_delete.html"
+    success_message = _("Employee successfully Deleted")
+    extra_context = {"Button": _("Delete")}

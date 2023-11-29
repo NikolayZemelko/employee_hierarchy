@@ -1,14 +1,10 @@
 {% extends "base.html" %}
-{% load django_bootstrap5 %}
 {% load i18n crispy_forms_filters %}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
-{% bootstrap_messages %}
 {% block content %}
     <form method="post">
         {% csrf_token %}
         {{ form|crispy }}
         {% trans Button as Button %}
-        {% bootstrap_button button_type="submit" content=Button %}
+        <button class="btn btn btn-outline-primary">{{ Button }}</button>
     </form>
 {% endblock %}

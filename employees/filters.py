@@ -19,7 +19,7 @@ class EmployeeFilter(filters.FilterSet):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.form.helper = FormHelper()
-        self.form.helper.form_class = 'form-horizontal'
+        self.form.helper.form_class = 'row g-1'
         self.form.helper.layout = Layout(
             Field('first_name'),
             Field('last_name'),

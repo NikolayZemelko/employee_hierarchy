@@ -1,9 +1,5 @@
 {% extends "base.html" %}
-{% load django_bootstrap5 %}
 {% load i18n crispy_forms_tags %}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
-{% bootstrap_messages %}
 {% block content %}
     {% csrf_token %}
     {% if request.user.is_authenticated %}
@@ -11,39 +7,41 @@
             {% crispy filter.form %}
         </form>
     {% endif %}
-            <hr>
-    <table class="table">
-        <thead>
-        <tr class="table-primary">
-            <th scope="col">#</th>
-            <th scope="col">{% trans "Name" %}</th>
-            <th scope="col">{% trans "Job title" %}</th>
-            <th scope="col">{% trans "Date offered" %}</th>
-            <th scope="col">{% trans "Salary" %}</th>
-            <th scope="col">{% trans "Supervisor" %}</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for employee in employees %}
+    <hr>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
             <tr>
-                <th>{{ forloop.counter }}</th>
-                <td>
-                    <a href="{% url "employee-detail" employee.id %}">
-                        {{ employee }}
-                    </a>
-                </td>
-                <td>{{ employee.get_job_title_display }}
-                    {% if not employee.supervisor %}
-                        | CEO </td>
-                    {% else %}
-                        </td>
-                    {% endif %}
-                <td>{{ employee.date_offered }}</td>
-                <td>{{ employee.salary }}</td>
-                <td>{{ employee.supervisor|default:"" }}</td>
+                <th scope="col">#</th>
+                <th scope="col">{% trans "Name" %}</th>
+                <th scope="col">{% trans "Job title" %}</th>
+                <th scope="col">{% trans "Date offered" %}</th>
+                <th scope="col">{% trans "Salary" %}</th>
+                <th scope="col">{% trans "Supervisor" %}</th>
             </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    {% include "components/pagination.html" %}
+            </thead>
+            <tbody>
+            {% for employee in employees %}
+                <tr>
+                    <th>{{ forloop.counter }}</th>
+                    <td>
+                        <a href="{% url "employee-detail" employee.id %}">
+                            {{ employee }}
+                        </a>
+                    </td>
+                    <td>{{ employee.get_job_title_display }}
+                        {% if not employee.supervisor %}
+                            | CEO </td>
+                        {% else %}
+                            </td>
+                        {% endif %}
+                    <td>{{ employee.date_offered }}</td>
+                    <td>{{ employee.salary }}</td>
+                    <td>{{ employee.supervisor|default:"" }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% include "components/pagination.html" %}
+    </div>
 {% endblock %}
