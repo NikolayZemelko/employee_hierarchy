@@ -16,4 +16,4 @@ RUN make migrate
 
 RUN make seed-render
 
-CMD gunicorn -b=0.0.0.0 employee_hierarchy.wsgi:application --workers 2
+CMD gunicorn -b=0.0.0.0:$PORT employee_hierarchy.wsgi:application --workers 2
