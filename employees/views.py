@@ -31,7 +31,7 @@ class EmployeeCreateView(LoginRequiredMixin,
     form_class = CreateEmployeeForm
     success_url = reverse_lazy('employees-index')
     template_name = "form.html"
-    success_message = _("Employee successfully Created")
+    success_message = _("Employee successfully created")
     extra_context = {"Button": _("Create")}
 
 
@@ -44,7 +44,7 @@ class EmployeeUpdateView(LoginRequiredMixin,
     model = Employee
     success_url = reverse_lazy('employees-index')
     template_name = 'form.html'
-    success_message = _("Employee successfully Updated")
+    success_message = _("Employee successfully updated")
     extra_context = {"Button": _("Update")}
 
 
@@ -56,5 +56,5 @@ class EmployeeDeleteView(LoginRequiredMixin,
     model = Employee
     success_url = reverse_lazy('employees-index')
     template_name = "employees/employee_delete.html"
-    success_message = _("Employee successfully Deleted")
+    success_message = _("Employee successfully deleted")
     extra_context = {"Button": _("Delete")}

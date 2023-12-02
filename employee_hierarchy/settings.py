@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'django_seeder',
     'django_filters',
     'crispy_forms',
-    'crispy_bootstrap5'
+    'crispy_bootstrap5',
+    'django_bootstrap5'
 ]
 
 MIDDLEWARE = [

@@ -17,6 +17,7 @@ gunicorn = "^21.2.0"
 python-dotenv = "0.21.1"
 django-crispy-forms = "^2.1"
 crispy-bootstrap5 = "^2023.10"
+django-bootstrap5 = "^23.3"
 
 [tool.poetry.group.dev.dependencies]
 Faker = "^19.13.0"

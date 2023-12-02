@@ -14,6 +14,7 @@
             <thead>
             <tr>
                 <th scope="col">#</th>
+                <th scope="col">ID</th>
                 <th scope="col">{% trans "Name" %}</th>
                 <th scope="col">{% trans "Job title" %}</th>
                 <th scope="col">{% trans "Date offered" %}</th>
@@ -25,6 +26,7 @@
             {% for employee in employees %}
                 <tr>
                     <th>{{ forloop.counter }}</th>
+                    <td>{{ employee.pk }}</td>
                     <td>
                         <a href="{% url "employee-detail" employee.id %}">
                             {{ employee }}
@@ -38,7 +40,11 @@
                         {% endif %}
                     <td>{{ employee.date_offered }}</td>
                     <td>{{ employee.salary }}</td>
-                    <td>{{ employee.supervisor|default:"" }}</td>
+                    <td>
+                        <a href="{% url "employee-detail" employee.supervisor_id %}">
+                            {{ employee.supervisor|default:"" }}
+                        </a>
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>
