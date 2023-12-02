@@ -1,31 +1,43 @@
 {% load i18n %}
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse collapse" id="navbarCollapse">
-            <ul class="navbar-nav mx-auto">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
+    <a class="navbar-brand" href="{% url 'index' %}">{% trans "Employees" %}</a>
+    <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarToggleExternalContent"
+            aria-controls="navbarToggleExternalContent"
+            aria-expanded="false"
+    >
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href={% url "employees-index" %}>{% trans "All employees" %}</a>
+            </li>
+            {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href={% url "employees-index" %}>{% trans "All employees" %}</a>
+                    <a class="nav-link" href={% url "employee-create" %}>{% trans "Create employee" %}</a>
                 </li>
-                {% if request.user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href={% url "employee-create" %}>{% trans "Create employee" %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href={% url "logout" %}>{% trans "Logout" %}</a>
-                    </li>
-                {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href={% url "login" %}>{% trans "Login" %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href={% url "signup" %}>{% trans "SignUp" %}</a>
-                    </li>
-                {% endif %}
-            </ul>
-        </div>
+            {% endif %}
+        </ul>
+        <ul class="navbar-nav">
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <div class="nav-link">{{ user.username }}</div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">{% trans "Log Out" %}</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href={% url "login" %}>{% trans "Login" %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href={% url "signup" %}>{% trans "SignUp" %}</a>
+                </li>
+            {% endif %}
+        </ul>
     </div>
 </nav>

@@ -7,8 +7,9 @@
             {% crispy filter.form %}
         </form>
     {% endif %}
-    <hr>
     <div class="table-responsive">
+        {% include "components/pagination.html" %}
+    <hr>
         <table class="table table-hover">
             <thead>
             <tr>

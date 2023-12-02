@@ -12,7 +12,6 @@
         <span class="current">
             {% trans "Page" %} {{ page_obj.number }} {% trans "of" %} {{ page_obj.paginator.num_pages }}.
         </span>
-
         {% if page_obj.has_next %}
             <a href="?{% param_replace page=page_obj.next_page_number %}">{% trans "Next" %}</a>
             <a href="?{% param_replace page=page_obj.paginator.num_pages %}">{% trans "Last" %} &raquo;</a>
