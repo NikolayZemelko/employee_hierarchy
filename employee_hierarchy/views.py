@@ -6,8 +6,6 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
 from django.views import generic
 
-from employees.models import CEOEmployee
-
 
 class EmployeesLoginView(SuccessMessageMixin, LoginView):
     next_page = reverse_lazy("employees-index")
@@ -29,12 +27,6 @@ class EmployeesLogoutView(LogoutView):
 
 class BaseView(generic.TemplateView):
     template_name = "base.html"
-
-    def dispatch(self, request, *args, **kwargs):
-        response = super().dispatch(request, *args, **kwargs)
-        if CEOEmployee.objects.exists():
-            self.extra_context['has_ceo'] = True
-        return response
 
 
 class SignUpView(SuccessMessageMixin, generic.CreateView):
