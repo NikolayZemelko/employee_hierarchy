@@ -22,7 +22,7 @@ lint:
 	flake8 .
 
 test:
-	$(MANAGE) test
+	$(MANAGE) test --no-input
 
 test-coverage:
 	coverage run manage.py test

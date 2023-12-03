@@ -97,9 +97,6 @@ DATABASES = {
         'HOST': os.environ.get('DB_HOST', 'localhost'),
         'PORT': os.environ.get('DB_PORT', '5432'),
         'NAME': os.environ.get('DB_NAME', 'postgres'),
-        'TEST': {
-            'NAME': os.environ.get('TEST_DB_NAME'),
-        }
     }
 }
 

@@ -6,15 +6,11 @@ from .models import Employee
 
 class EmployeesTestCase(TestCase):
 
-    fixtures = ["employees.json"]
+    fixtures = ["user.json", "employees.json"]
 
     def setUp(self):
         self.client = Client()
-        self.user = User.objects.create(
-            first_name="Nikolay",
-            last_name="Zemelko",
-            password="Kola1989"
-        )
+        self.user = User.objects.get(pk=1)
         # Create some employees for testing
         self.all_employees = Employee.objects.count()
         self.employee1 = Employee.objects.get(pk=1)
