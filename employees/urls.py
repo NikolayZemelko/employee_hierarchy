@@ -7,7 +7,7 @@ urlpatterns = [
          name='employees-index'),
     path('create', views.EmployeeCreateView.as_view(),
          name='employee-create'),
-    path('<int:pk>/detail', views.EmployeeDetailView.as_view(),
+    path('<int:pk>/', views.EmployeeDetailView.as_view(),
          name='employee-detail'),
     path('<int:pk>/update', views.EmployeeUpdateView.as_view(),
          name='employee-update'),

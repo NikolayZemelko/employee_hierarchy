@@ -1,0 +1,132 @@
+[
+  {
+    "model": "employees.employee",
+    "pk": 1,
+    "fields": {
+      "first_name": "Megan",
+      "last_name": "Wright",
+      "job_title": "SR",
+      "date_created": "1982-03-09T08:14:17Z",
+      "date_offered": "2016-04-23",
+      "salary": 300000,
+      "supervisor": null
+    }
+  },
+  {
+    "model": "employees.employee",
+    "pk": 2,
+    "fields": {
+      "first_name": "David",
+      "last_name": "Hill",
+      "job_title": "MD",
+      "date_created": "1985-04-04T06:42:51Z",
+      "date_offered": "1980-01-24",
+      "salary": 150000,
+      "supervisor": 1
+    }
+  },
+  {
+    "model": "employees.employee",
+    "pk": 3,
+    "fields": {
+      "first_name": "Sandra",
+      "last_name": "Cervantes",
+      "job_title": "MD",
+      "date_created": "1985-05-08T06:07:38Z",
+      "date_offered": "1995-10-05",
+      "salary": 150000,
+      "supervisor": 1
+    }
+  },
+  {
+    "model": "employees.employee",
+    "pk": 4,
+    "fields": {
+      "first_name": "Sherry",
+      "last_name": "Briggs",
+      "job_title": "MD",
+      "date_created": "1994-11-07T12:37:24Z",
+      "date_offered": "1974-07-09",
+      "salary": 150000,
+      "supervisor": 1
+    }
+  },
+  {
+    "model": "employees.employee",
+    "pk": 5,
+    "fields": {
+      "first_name": "Deborah",
+      "last_name": "Black",
+      "job_title": "MD",
+      "date_created": "2022-05-09T00:15:36Z",
+      "date_offered": "1987-07-06",
+      "salary": 150000,
+      "supervisor": 1
+    }
+  },
+  {
+    "model": "employees.employee",
+    "pk": 6,
+    "fields": {
+      "first_name": "Annette",
+      "last_name": "Bradley",
+      "job_title": "MD",
+      "date_created": "1985-03-09T11:37:16Z",
+      "date_offered": "1973-09-26",
+      "salary": 150000,
+      "supervisor": 1
+    }
+  },
+  {
+    "model": "employees.employee",
+    "pk": 7,
+    "fields": {
+      "first_name": "Rebecca",
+      "last_name": "Gutierrez",
+      "job_title": "MD",
+      "date_created": "2002-06-30T10:58:55Z",
+      "date_offered": "2004-10-23",
+      "salary": 150000,
+      "supervisor": 1
+    }
+  },
+  {
+    "model": "employees.employee",
+    "pk": 8,
+    "fields": {
+      "first_name": "Annette",
+      "last_name": "Young",
+      "job_title": "MD",
+      "date_created": "2002-07-16T08:34:25Z",
+      "date_offered": "1992-04-13",
+      "salary": 150000,
+      "supervisor": 1
+    }
+  },
+  {
+    "model": "employees.employee",
+    "pk": 9,
+    "fields": {
+      "first_name": "Allison",
+      "last_name": "Frazier",
+      "job_title": "MD",
+      "date_created": "1993-01-16T09:01:41Z",
+      "date_offered": "2008-02-23",
+      "salary": 150000,
+      "supervisor": 1
+    }
+  },
+  {
+    "model": "employees.employee",
+    "pk": 10,
+    "fields": {
+      "first_name": "James",
+      "last_name": "Carter",
+      "job_title": "MD",
+      "date_created": "1983-10-03T04:07:51Z",
+      "date_offered": "2009-12-07",
+      "salary": 150000,
+      "supervisor": 1
+    }
+  }
+]

@@ -22,6 +22,7 @@ django-bootstrap5 = "^23.3"
 [tool.poetry.group.dev.dependencies]
 Faker = "^19.13.0"
 django-seeder = "^0.1.0"
+coverage = "^7.3.2"
 
 [build-system]
 requires = ["poetry-core"]

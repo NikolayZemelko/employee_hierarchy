@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% load i18n crispy_forms_tags %}
 {% block content %}
-    {% csrf_token %}
     {% if request.user.is_authenticated %}
         <form action="" method="get">
             {% crispy filter.form %}
@@ -26,25 +25,24 @@
             {% for employee in employees %}
                 <tr>
                     <th>{{ forloop.counter }}</th>
-                    <td>{{ employee.pk }}</td>
+                    <td>{{ employee.id }}</td>
                     <td>
                         <a href="{% url "employee-detail" employee.id %}">
                             {{ employee }}
                         </a>
                     </td>
-                    <td>{{ employee.get_job_title_display }}
-                        {% if not employee.supervisor %}
-                            | CEO </td>
-                        {% else %}
-                            </td>
-                        {% endif %}
+                    <td>{{ employee.get_job_title_display }}</td>
                     <td>{{ employee.date_offered }}</td>
                     <td>{{ employee.salary }}</td>
-                    <td>
+                {% if employee.supervisor %}
+                	<td>
                         <a href="{% url "employee-detail" employee.supervisor_id %}">
-                            {{ employee.supervisor|default:"" }}
+                            {{ employee.supervisor }}
                         </a>
                     </td>
+                {% else %}
+                    <td></td>
+                {% endif %}
                 </tr>
             {% endfor %}
             </tbody>

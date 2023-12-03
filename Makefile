@@ -24,6 +24,11 @@ lint:
 test:
 	$(MANAGE) test
 
+test-coverage:
+	coverage run manage.py test
+	coverage report -m --include=employees/* --omit=settings.py
+	coverage xml --include=employees/* --omit=settings.py
+
 dev:
 	$(MANAGE) runserver
 
@@ -32,10 +37,8 @@ docker-start:
 	docker-compose build --no-cache
 	docker-compose up
 
-
 shell:
 	$(MANAGE) shell_plus --print-sql
-
 # Database commands
 migrations:
 	$(MANAGE) makemigrations

@@ -1,12 +1,13 @@
 asgiref==3.7.2
 crispy-bootstrap5==2023.10
 Django==4.2.7
+django-bootstrap5==23.3
 django-crispy-forms==2.1
 django-cte==1.3.2
 django-extensions==3.2.3
 django-filter==23.4
 django-seeder==0.1.0
--e git+https://github.com/zemelko/employee_hierarchy.git@1c68cb315a507180294b07c351def1b5d960c6fd#egg=employee_hierarchy
+-e git+https://github.com/zemelko/employee_hierarchy.git@4761494d6f593733c0216a9cbfd087aa969f1666#egg=employee_hierarchy
 Faker==19.13.0
 flake8==6.1.0
 gunicorn==21.2.0
