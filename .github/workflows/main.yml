@@ -28,6 +28,8 @@ jobs:
       run: poetry install --no-interaction --no-root
 
     - name: Run Tests
+      env:
+        DEBUG: False
       run: |
         source .venv/bin/activate
         make lint
