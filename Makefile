@@ -4,17 +4,17 @@ POETRY := poetry run
 install:
 	poetry install
 
-seed:
+seed-prod:
 	$(MANAGE) flush --no-input
 	$(MANAGE) seed employees --number=1 --seeder "Employee.id" 1 --seeder "Employee.job_title" "SR" --seeder "Employee.salary" 300000
 	$(MANAGE) seed employees --number=50 --seeder "Employee.supervisor_id" 1 --seeder "Employee.job_title" "MD" --seeder "Employee.salary" 150000
 	$(MANAGE) seed employees --number=40950 --seeder "Employee.supervisor_id" 1 --seeder "Employee.job_title" "JR" --seeder "Employee.salary" 60000
 
-seed-test:
+seed-dev:
 	$(MANAGE) flush --no-input
-	$(MANAGE) seed employees --number=1 --seeder "Employee.id" 1 --seeder "Employee.job_title" "SR" --seeder "Employee.salary" 300000
-	$(MANAGE) seed employees --number=50 --seeder "Employee.supervisor_id" 1 --seeder "Employee.job_title" "MD" --seeder "Employee.salary" 150000
-	$(MANAGE) seed employees --number=500 --seeder "Employee.supervisor_id" 1 --seeder "Employee.job_title" "JR" --seeder "Employee.salary" 60000
+	$(MANAGE) seed employees --settings employee_hierarchy.settings-dev --number=1 --seeder "Employee.id" 1 --seeder "Employee.job_title" "SR" --seeder "Employee.salary" 300000
+	$(MANAGE) seed employees --settings employee_hierarchy.settings-dev --number=50 --seeder "Employee.supervisor_id" 1 --seeder "Employee.job_title" "MD" --seeder "Employee.salary" 150000
+	$(MANAGE) seed employees --settings employee_hierarchy.settings-dev --number=5000 --seeder "Employee.supervisor_id" 1 --seeder "Employee.job_title" "JR" --seeder "Employee.salary" 60000
 
 seed-render:
 	$(MANAGE) flush --no-input
@@ -34,7 +34,11 @@ test-coverage:
 	$(POETRY) coverage xml --include=employees/* --omit=settings.py
 
 dev:
-	$(POETRY) $(MANAGE) runserver
+	$(POETRY) $(MANAGE) runserver --settings employee_hierarchy.settings-dev
+
+PORT ?= 8000
+start:
+	$(POETRY) gunicorn -b=0.0.0.0:$(PORT) employee_hierarchy.wsgi:application --workers 4
 
 docker-start:
 	$(POETRY) pip freeze > requirements.txt
