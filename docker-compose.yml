@@ -4,21 +4,24 @@ services:
 
   db:
     image: postgres:15
-    container_name: employee_db
-    command: -p 1221
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    restart: always
     expose:
-      - 1221
-    env_file:
-      - .env-nondev
+      - 5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data/:rw
 
   app:
     build:
       context: .
-    env_file:
-      - .env-nondev
-    container_name: employee_hierarchy
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/postgres
     command: ["/employee_hierarchy/docker/app.sh"]
     ports:
       - 9999:8000
     depends_on:
       - db
+
+volumes:
+    pgdata:
