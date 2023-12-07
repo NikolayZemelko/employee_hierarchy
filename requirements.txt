@@ -9,7 +9,7 @@ django-cte==1.3.2
 django-extensions==3.2.3
 django-filter==23.4
 django-seeder==0.1.0
--e git+https://github.com/zemelko/employee_hierarchy.git@79956c87dec20bf8f3b3f8b012cebeaeb03a0ed6#egg=employee_hierarchy
+-e git+https://github.com/zemelko/employee_hierarchy.git@d09d04d2301965a17ea03deca2ac0247f402b41e#egg=employee_hierarchy
 Faker==19.13.0
 flake8==6.1.0
 gunicorn==21.2.0

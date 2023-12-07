@@ -1,4 +1,8 @@
 MANAGE := python3 manage.py
+POETRY := poetry run
+
+install:
+	poetry install
 
 seed:
 	$(MANAGE) flush --no-input
@@ -19,26 +23,26 @@ seed-render:
 	$(MANAGE) seed employees --number=30 --seeder "Employee.supervisor_id" 3 --seeder "Employee.job_title" "JR" --seeder "Employee.salary" 60000
 
 lint:
-	flake8 .
+	$(POETRY) flake8 .
 
 test:
-	$(MANAGE) test --no-input
+	$(POETRY) $(MANAGE) test --no-input
 
 test-coverage:
-	coverage run manage.py test
-	coverage report -m --include=employees/* --omit=settings.py
-	coverage xml --include=employees/* --omit=settings.py
+	$(POETRY) coverage run manage.py test
+	$(POETRY) coverage report -m --include=employees/* --omit=settings.py
+	$(POETRY) coverage xml --include=employees/* --omit=settings.py
 
 dev:
-	$(MANAGE) runserver
+	$(POETRY) $(MANAGE) runserver
 
 docker-start:
-	poetry run pip freeze > requirements.txt
+	$(POETRY) pip freeze > requirements.txt
 	docker-compose build --no-cache
 	docker-compose up
 
 shell:
-	$(MANAGE) shell_plus --print-sql
+	$(POETRY) $(MANAGE) shell_plus --print-sql
 # Database commands
 migrations:
 	$(MANAGE) makemigrations
