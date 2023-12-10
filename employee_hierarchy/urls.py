@@ -1,9 +1,13 @@
 from django.contrib import admin
 from django.urls import include
 from django.urls import path
-
+from rest_framework import routers
 from .views import BaseView, SignUpView
-from .views import EmployeesLoginView, EmployeesLogoutView
+from .views import EmployeesLoginView, EmployeesLogoutView, EmployeesViewSet
+
+
+router = routers.DefaultRouter()
+router.register(r'employees', EmployeesViewSet)
 
 urlpatterns = [
     path('', BaseView.as_view(), name='index'),
@@ -14,4 +18,5 @@ urlpatterns = [
     path('logout/', EmployeesLogoutView.as_view(),
          name='logout'),
     path('employees/', include('employees.urls')),
+    path('api/', include(router.urls))
 ]

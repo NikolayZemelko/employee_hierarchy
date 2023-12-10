@@ -14,7 +14,7 @@
     <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href={% url "employees-index" %}>{% trans "All employees" %}</a>
+                <a class="nav-link" href={% url "employees" %}>{% trans "All employees" %}</a>
             </li>
             {% if user.is_authenticated %}
                 <li class="nav-item">

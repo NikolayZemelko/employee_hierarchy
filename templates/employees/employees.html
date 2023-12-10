@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load i18n crispy_forms_tags %}
+{% block content %}
+
+    <div class="table-responsive">
+    <hr>
+        <table id="employees_table" class="table table-striped table-bordered" style="width:100%"
+        data-server-side="true" data-ajax="/api/employees/?format=datatables">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">{% trans "Name" %}</th>
+                <th scope="col">{% trans "Job title" %}</th>
+                <th scope="col">{% trans "Date offered" %}</th>
+                <th scope="col">{% trans "Salary" %}</th>
+                <th scope="col">{% trans "Supervisor" %}</th>
+            </tr>
+            </thead>
+        </table>
+        <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+        <script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#employees_table').DataTable({
+                    'serverSide': true,
+                    'ajax': '/api/employees/?format=datatables',
+                    'columns': [
+                        {'data': 'id'},
+                        {'data': 'full_name'},
+                        {'data': 'job_title'},
+                        {'data': 'date_offered'},
+                        {'data': 'salary'},
+                        {'data': 'supervisor.full_name'}
+                    ]
+                });
+            });
+        </script>
+    </div>
+{% endblock %}

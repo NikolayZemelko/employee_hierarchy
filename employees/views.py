@@ -1,5 +1,6 @@
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
+from django.shortcuts import render
 from django.utils.translation import gettext as _
 from django.views import generic
 from django_filters.views import FilterView
@@ -10,18 +11,21 @@ from .mixins import AuthRequiredMixin
 from .models import Employee
 
 
+def index(request):
+    return render(request, 'employees/employees.html')
+
+
 class EmployeesView(EmployeeFilter, FilterView):
     model = Employee
     paginate_by = 20
     ordering = 'first_name'
     filterset_class = EmployeeFilter
     context_object_name = 'employees'
-    template_name = "employees/employees_index.html"
+    template_name = "employees/employees.html"
 
 
 class EmployeeDetailView(AuthRequiredMixin,
                          generic.DetailView):
-
     login_url = reverse_lazy('login')
     model = Employee
     template_name = 'employees/employee_detail.html'
@@ -33,7 +37,7 @@ class EmployeeCreateView(AuthRequiredMixin,
                          generic.CreateView):
     login_url = reverse_lazy('login')
     form_class = CreateEmployeeForm
-    success_url = reverse_lazy('employees-index')
+    success_url = reverse_lazy('employees')
     template_name = "form.html"
     success_message = _("Employee successfully created")
     permission_denied_message = _("You need to log in")
@@ -47,7 +51,7 @@ class EmployeeUpdateView(AuthRequiredMixin,
     login_url = reverse_lazy('login')
     form_class = CreateEmployeeForm
     model = Employee
-    success_url = reverse_lazy('employees-index')
+    success_url = reverse_lazy('employees')
     template_name = 'form.html'
     success_message = _("Employee successfully updated")
     permission_denied_message = _("You need to log in")
@@ -60,7 +64,7 @@ class EmployeeDeleteView(AuthRequiredMixin,
                          ):
     login_url = reverse_lazy('login')
     model = Employee
-    success_url = reverse_lazy('employees-index')
+    success_url = reverse_lazy('employees')
     template_name = "employees/employee_delete.html"
     success_message = _("Employee successfully deleted")
     permission_denied_message = _("You need to log in")

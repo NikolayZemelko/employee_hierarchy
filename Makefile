@@ -11,10 +11,10 @@ seed-prod:
 	$(MANAGE) seed employees --number=40950 --seeder "Employee.supervisor_id" 1 --seeder "Employee.job_title" "JR" --seeder "Employee.salary" 60000
 
 seed-dev:
-	$(MANAGE) flush --no-input
+	$(MANAGE) flush --settings employee_hierarchy.settings-dev --no-input
 	$(MANAGE) seed employees --settings employee_hierarchy.settings-dev --number=1 --seeder "Employee.id" 1 --seeder "Employee.job_title" "SR" --seeder "Employee.salary" 300000
 	$(MANAGE) seed employees --settings employee_hierarchy.settings-dev --number=50 --seeder "Employee.supervisor_id" 1 --seeder "Employee.job_title" "MD" --seeder "Employee.salary" 150000
-	$(MANAGE) seed employees --settings employee_hierarchy.settings-dev --number=5000 --seeder "Employee.supervisor_id" 1 --seeder "Employee.job_title" "JR" --seeder "Employee.salary" 60000
+	$(MANAGE) seed employees --settings employee_hierarchy.settings-dev --number=100 --seeder "Employee.supervisor_id" 1 --seeder "Employee.job_title" "JR" --seeder "Employee.salary" 60000
 
 seed-render:
 	$(MANAGE) flush --no-input

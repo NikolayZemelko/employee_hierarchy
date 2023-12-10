@@ -24,10 +24,10 @@ class EmployeeListViewTestCase(EmployeesTestCase):
 
     def test_employees_view(self):
         self.client.force_login(self.user)
-        self.url = reverse('employees-index')
+        self.url = reverse('employees')
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'employees/employees_index.html')
+        self.assertTemplateUsed(response, 'employees/employees.html')
         self.assertContains(response, self.employee1.first_name)
         self.assertContains(response, self.employee2.first_name)
 
@@ -54,7 +54,7 @@ class EmployeeDeleteViewTestCase(EmployeesTestCase):
         self.client.force_login(self.user)
         self.url = reverse('employee-delete', kwargs={"pk": 3})
         self.client.post(self.url)
-        self.url = reverse('employees-index')
+        self.url = reverse('employees')
         response = self.client.get(self.url)
         self.assertEqual(self.all_employees - 1, response.context['employees'].count())
 
