@@ -5,16 +5,20 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
 from django.views import generic
+from rest_framework import viewsets
+
+from employees.models import Employee
+from employees.serializers import EmployeeSerializer
 
 
-class EmployeesLoginView(SuccessMessageMixin, LoginView):
+class LoginView(SuccessMessageMixin, LoginView):
     next_page = reverse_lazy("employees-index")
     template_name = "login.html"
     success_message = _('Successfully login')
     extra_context = {"Button": "Login"}
 
 
-class EmployeesLogoutView(LogoutView):
+class LogoutView(LogoutView):
     next_page = reverse_lazy("employees-index")
     extra_context = {"Button": "Logout"}
 
@@ -35,3 +39,8 @@ class SignUpView(SuccessMessageMixin, generic.CreateView):
     template_name = 'signup.html'
     success_message = _('Successfully sign up')
     extra_context = {"Button": "Sign up"}
+
+
+class EmployeeViewSet(viewsets.ModelViewSet):
+    queryset = Employee.objects.all()
+    serializer_class = EmployeeSerializer

@@ -21,7 +21,6 @@ class EmployeesView(EmployeeFilter, FilterView):
 
 class EmployeeDetailView(AuthRequiredMixin,
                          generic.DetailView):
-
     login_url = reverse_lazy('login')
     model = Employee
     template_name = 'employees/employee_detail.html'
