@@ -29,7 +29,7 @@ hierarchies.
 - [x] Using standard Django/Flask functions, authenticate the user for the registered user-only section of the website.
 - [x] Move the functionality developed in tasks 4, 5 and 6 (using ajax requests) to a section available only to registered users.
 - [x] In the section available only to registered users, implement the remaining CRUD operations for employee records. Please note that all fields related to users must be editable, including the boss of each employee.
-- [ ] Make it possible to upload a photo of an employee and display it on the page where you can edit information about the employee. Add an additional column with a thumbnail photo of the employee on the list of all employees page.
+- [x] Make it possible to upload a photo of an employee and display it on the page where you can edit information about the employee. Add an additional column with a thumbnail photo of the employee on the list of all employees page.
 - [ ] Implement the ability to redistribute employees in case of a change in boss (a bonus may be that you can do this using the built-in mechanisms/paradigms offered by Django ORM / Flask-SQLAlchemy ORM).
 - [ ] Implement lazy loading for the employee tree. For example, show the first two levels of the hierarchy by default and load the next 2 levels or the entire tree branch when you click on a second-level employee.
 - [ ] Implement the ability to change an employee's boss using drag-n-drop directly in the employee tree.
@@ -44,3 +44,12 @@ To start demo you need installed `postgres` or installed `docker-compose`
 2. Fill the `.env` file in the root directory, use `.env-example`
 3. Run app with `make dev`
 4. Run app with docker-compose `make docker-start`
+
+### Working with:
+
+#### If you want to seeding your test-db:
+
+1. Run `make seed-first` for seeding your first CEO-employee.
+2. Run `make seed-dev` for seeding the others, like intern, junior, middle and senior employees.
+3. Run `make flush` if you want to flush your dev database.
+

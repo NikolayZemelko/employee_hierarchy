@@ -32,7 +32,6 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", False)
 
-ENV = "DEV" if DEBUG else "PRODUCTION"
 
 ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
 
@@ -166,12 +165,11 @@ SIMPLE_JWT = {
 
 CORS_ORIGIN_WHITELIST = ["http://localhost:3300", "http://127.0.0.1:3300"]
 
-
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
 
 ####################################
-    ##  CKEDITOR CONFIGURATION ##
+##  CKEDITOR CONFIGURATION ##
 ####################################
 
 CKEDITOR_IMAGE_BACKEND = "pillow"
@@ -180,16 +178,18 @@ CKEDITOR_CONFIGS = {
         "removePlugins": "stylesheetparser",
         'allowedContent': True,
         'toolbar_Full': [
-        ['Styles', 'Format', 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat' ],
-        ['Image', 'Flash', 'Table', 'HorizontalRule'],
-        ['TextColor', 'BGColor'],
-        ['Smiley','sourcearea', 'SpecialChar'],
-        [ 'Link', 'Unlink', 'Anchor' ],
-        [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language' ],
-        [ 'Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates' ],
-        [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ],
-        [ 'Find', 'Replace', '-', 'SelectAll', '-', 'Scayt' ],
-        [ 'Maximize', 'ShowBlocks' ]
-    ],
+            ['Styles', 'Format', 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-',
+             'RemoveFormat'],
+            ['Image', 'Flash', 'Table', 'HorizontalRule'],
+            ['TextColor', 'BGColor'],
+            ['Smiley', 'sourcearea', 'SpecialChar'],
+            ['Link', 'Unlink', 'Anchor'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-',
+             'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language'],
+            ['Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates'],
+            ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'],
+            ['Find', 'Replace', '-', 'SelectAll', '-', 'Scayt'],
+            ['Maximize', 'ShowBlocks']
+        ],
     }
 }
