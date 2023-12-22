@@ -25,6 +25,7 @@ class EmployeeDetailView(AuthRequiredMixin,
     model = Employee
     template_name = 'employees/employee_detail.html'
     permission_denied_message = _("You need to log in")
+    extra_context = {"Button": _("Upload")}
 
 
 class EmployeeCreateView(AuthRequiredMixin,

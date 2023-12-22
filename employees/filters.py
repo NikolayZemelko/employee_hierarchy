@@ -37,4 +37,4 @@ class EmployeeFilter(filters.FilterSet):
 
     class Meta:
         model = Employee
-        exclude = ['date_created']
+        exclude = ['date_created', 'photo']

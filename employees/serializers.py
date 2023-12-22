@@ -10,6 +10,7 @@ class SupervisorSerializer(serializers.ModelSerializer):
 
 class EmployeeSerializer(serializers.ModelSerializer):
     supervisor = SupervisorSerializer(many=False, read_only=True)
+    photo = serializers.ImageField()
 
     class Meta:
         model = Employee

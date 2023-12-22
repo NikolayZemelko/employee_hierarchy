@@ -6,12 +6,20 @@ class Employee(models.Model):
     JUNIOR = "JR"
     MIDDLE = "MD"
     SENIOR = "SR"
+    CEO = "CEO"
+    INTERN = "IN"
 
     TITLES = [
+        (INTERN, _("Intern")),
         (JUNIOR, _("Junior")),
         (MIDDLE, _("Middle")),
-        (SENIOR, _("Senior"))
+        (SENIOR, _("Senior")),
+        (CEO, _("CEO"))
     ]
+
+    photo = models.ImageField(upload_to='employee_photos/',
+                              null=True,
+                              blank=True)
     first_name = models.CharField(
         max_length=150
     )
@@ -23,7 +31,7 @@ class Employee(models.Model):
     job_title = models.CharField(
         max_length=100,
         choices=TITLES,
-        default=JUNIOR
+        default=INTERN
     )
     date_created = models.DateTimeField(
         auto_now_add=True,

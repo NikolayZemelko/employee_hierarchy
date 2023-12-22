@@ -20,11 +20,16 @@ crispy-bootstrap5 = "^2023.10"
 django-bootstrap5 = "^23.3"
 dj-database-url = "^2.1.0"
 django-rest-framework = "^0.1.0"
+djangorestframework-simplejwt = "^5.3.1"
+django-cors-headers = "^4.3.1"
+django-ckeditor = "^6.7.0"
+pillow = "^10.1.0"
 
 [tool.poetry.group.dev.dependencies]
 Faker = "^19.13.0"
 django-seeder = "^0.1.0"
 coverage = "^7.3.2"
+argparse = "^1.4.0"
 
 [build-system]
 requires = ["poetry-core"]

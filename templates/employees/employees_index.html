@@ -8,12 +8,13 @@
     {% endif %}
     <div class="table-responsive">
         {% include "components/pagination.html" %}
-    <hr>
+        <hr>
         <table class="table table-hover">
             <thead>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">ID</th>
+                <th scope="col">{% trans "Photo" %}</th>
                 <th scope="col">{% trans "Name" %}</th>
                 <th scope="col">{% trans "Job title" %}</th>
                 <th scope="col">{% trans "Date offered" %}</th>
@@ -26,6 +27,18 @@
                 <tr>
                     <th>{{ forloop.counter }}</th>
                     <td>{{ employee.id }}</td>
+                    <div class="text-center">
+                        <td>
+                            {% if employee.photo %}
+                                <img src="{{ employee.photo.url }}"
+                                     class="rounded" width=50>
+                            {% else %}
+                                {% load static %}
+                                <img src="{% static 'employees/nophoto.jpg' %}"
+                                     class="rounded" width=50>
+                            {% endif %}
+                        </td>
+                    </div>
                     <td>
                         <a href="{% url "employee-detail" employee.id %}">
                             {{ employee }}
@@ -34,15 +47,15 @@
                     <td>{{ employee.get_job_title_display }}</td>
                     <td>{{ employee.date_offered }}</td>
                     <td>{{ employee.salary }}</td>
-                {% if employee.supervisor %}
-                	<td>
-                        <a href="{% url "employee-detail" employee.supervisor_id %}">
-                            {{ employee.supervisor }}
-                        </a>
-                    </td>
-                {% else %}
-                    <td></td>
-                {% endif %}
+                    {% if employee.supervisor %}
+                        <td>
+                            <a href="{% url "employee-detail" employee.supervisor_id %}">
+                                {{ employee.supervisor }}
+                            </a>
+                        </td>
+                    {% else %}
+                        <td></td>
+                    {% endif %}
                 </tr>
             {% endfor %}
             </tbody>
