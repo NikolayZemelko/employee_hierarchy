@@ -56,8 +56,10 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'django_bootstrap5',
     'rest_framework',
+    'rest_framework.authtoken',
     'ckeditor',
-    'ckeditor_uploader'
+    'ckeditor_uploader',
+    'djoser'
 ]
 
 MIDDLEWARE = [
