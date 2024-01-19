@@ -42,6 +42,7 @@ class SignUpView(SuccessMessageMixin, generic.CreateView):
 
 
 class EmployeeViewSet(viewsets.ModelViewSet):
+    pagination_class = None
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
     permission_classes = [permissions.AllowAny]
